@@ -2,15 +2,16 @@ import React from 'react';
 import GScontent from './GScontent.jsx';
 import GSimage from './GSimage.jsx';
 import GSvideo from './GSvideo.jsx';
+import Footer from './Footer.jsx'
 import './Getstarted.css';
 
 export default function Getstarted() {
   return (
-    <div className="Getstarted">
+    <div className="Getstarted" >
       <div className="heading">
-       <h1>Get Started :</h1>
+       <h1 style={{marginTop:'2rem'}}>Get Started :</h1>
       </div>
-      <div className="step1">
+      <div className="step1" style={{marginBottom:'10rem',marginTop:'10rem'}}>
         <div className="step1content">
           <GScontent 
             title="Bank connect" 
@@ -26,12 +27,13 @@ export default function Getstarted() {
         </div>
       </div>
       <div className="step2">
-        <div className="step2img">
+        <div className="step2img" style={{marginTop:'2rem'}}>
           <GSvideo video="/assets/GSimage2.mp4"/>
         </div>
         <div className="step2content">
           <GScontent 
             title="Track your expenses" 
+            
             content={[
               "Get featured graphic for your expenses and income",
               "Analyze your spending patterns",
@@ -40,7 +42,7 @@ export default function Getstarted() {
           />
         </div>
       </div>
-      <div className="step3">
+      <div className="step3" style={{marginBottom:'5rem'}}>
         <div className="step3content">
           <GScontent 
             title="Smart budgets, Savings e-wallet" 
@@ -56,6 +58,7 @@ export default function Getstarted() {
           <GSimage image="/assets/GSimage4.png" />
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

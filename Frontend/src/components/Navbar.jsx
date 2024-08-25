@@ -9,12 +9,9 @@ export default function Navbar() {
         <li>
           <Link>Get started</Link>
         </li>
-        <li>
-          <Link>Bank Connect</Link>
-        </li>
-        <li>
-          <Link>Features</Link>
-        </li>
+        <li> <Link to="/bankConnecth">Bank Connect</Link></li>
+        <li> <Link to="/featuresh">Features</Link></li>
+      
         <li>
           <Link to="/register">SignUp</Link>
         </li>

@@ -9,7 +9,7 @@ const TransactionsList = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/transactions?userId=${userId}`);
+        const response = await axios.get(`http://localhost:3000/transactions?userId=${userId}`);
         setTransactions(response.data);
       } catch (error) {
         console.error('Error fetching transactions:', error);

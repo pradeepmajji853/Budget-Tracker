@@ -1,0 +1,79 @@
+.financial-literacy-details-page {
+  padding: 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.financial-literacy-details-heading {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.financial-literacy-details-description {
+  font-size: 1.1em;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.financial-literacy-details-resources-section {
+  text-align: left;
+}
+
+.financial-literacy-details-subheading {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: blueviolet;
+}
+
+.financial-literacy-details-books-container,
+.financial-literacy-details-videos-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.financial-literacy-details-card {
+  background-color: #f8f8f8;
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/back_pic/03/60/72/8057a6909bb7d0d.jpg');
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.747);
+  margin: 20px;
+  padding: 20px;
+  width: 30%;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.financial-literacy-details-card:hover {
+  transform: scale(1.05);
+}
+
+.financial-literacy-details-book-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.financial-literacy-details-book-description,
+.financial-literacy-details-book-author {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.financial-literacy-details-icon {
+  font-size: 2em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.financial-literacy-details-iframe {
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .financial-literacy-details-card {
+      width: 100%;
+  }
+}

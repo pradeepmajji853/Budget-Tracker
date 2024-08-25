@@ -11,6 +11,9 @@ import Overview from "./Overview.jsx";
 import Budgets from "./Budgets.jsx";
 import SavingsWallet from "./SavingsWallet.jsx";
 import BankAccountdashboard from "./BankAccountdashboard.jsx"
+import BankConnecth from './BankConnecth'
+import Featuresh from './Featuresh.jsx'
+
 
 function App() {
   return (
@@ -42,6 +45,25 @@ function App() {
             </Layout>
           }
         />
+
+<Route
+          path="/bankConnecth"
+          element={
+            <Layout>
+              <BankConnecth/>
+            </Layout>
+          }
+        />
+<Route
+          path="/Featuresh"
+          element={
+            <Layout>
+              <Featuresh/>
+            </Layout>
+          }
+        />
+
+
         <Route
           path="/dashboard"
           element={
@@ -82,6 +104,8 @@ function App() {
             </Layout>
           }
         />
+
+
       </Routes>
     </Router>
   );

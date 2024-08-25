@@ -42,7 +42,7 @@ const BankConnect = () => {
   
     const userId = localStorage.getItem('userId');
     try {
-      const response = await axios.post('http://127.0.0.1:8000/BankAccountdashboard', {
+      const response = await axios.post('http://localhost:3000/BankAccountdashboard', {
         userId,
         transactions
       });
@@ -58,7 +58,7 @@ const BankConnect = () => {
       const userId = localStorage.getItem('userId');
       if (userId) {
         try {
-          const { data } = await axios.get('http://127.0.0.1:8000/BankAccountdashboard', {
+          const { data } = await axios.get('http://localhost:3000/BankAccountdashboard', {
             params: { userId }
           });
         

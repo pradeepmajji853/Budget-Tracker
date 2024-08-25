@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 # SQLite Database setup
-DATABASE_URL = "sqlite:///./users.db"
+DATABASE_URL = "sqlite:///./campus_cash.db"
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()

@@ -1,10 +1,9 @@
+import "./TitleImg.css";
 
-import "./TitleImg.css"
-export default function TitleImg(){
-    return(
-        <div className="TitleImg">
-            <img src="assets/TitleImg.png"/>
-        </div>
-    )
-
+export default function TitleImg() {
+  return (
+    <div className="TitleImg">
+      <img src="assets/TitleImg.png" alt="Title" />
+    </div>
+  );
 }

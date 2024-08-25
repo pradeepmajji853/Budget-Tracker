@@ -15,7 +15,7 @@ export default function Overview() {
     const userId = localStorage.getItem('userId');
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/transactions?userId=${userId}`)
+        axios.get(`http://localhost:3000/transactions?userId=${userId}`)
             .then(response => {
                 setTransactions(response.data);
             })
@@ -23,7 +23,7 @@ export default function Overview() {
                 console.error("There was an error fetching the transactions!", error);
             });
 
-        axios.get(`http://127.0.0.1:8000/balance-over-time?userId=${userId}`)
+        axios.get(`http://localhost:3000/balance-over-time?userId=${userId}`)
             .then(response => {
                 setBalanceData(response.data);
             })
@@ -36,7 +36,7 @@ export default function Overview() {
     }, [userId, period, date]);
 
     const fetchIncomeExpensesData = (period, date) => {
-        axios.get(`http://127.0.0.1:8000/income-expenses?userId=${userId}&period=${period}&date=${date.toISOString().split('T')[0]}`)
+        axios.get(`http://localhost:3000/income-expenses?userId=${userId}&period=${period}&date=${date.toISOString().split('T')[0]}`)
             .then(response => {
                 setIncomeExpensesData(response.data);
             })

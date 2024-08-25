@@ -1,0 +1,88 @@
+
+.footer1 {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.footer1-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  bottom: 0;
+}
+
+.footer1-section {
+  margin: 10px;
+}
+
+.contact-follow,
+.help-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1;
+}
+
+.contact-follow {
+  justify-content: space-between;
+}
+
+.contact-details,
+.social-media,
+.help,
+.terms {
+  flex: 1;
+  min-width: 200px;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #007bff; /* Change to a hover color of your choice */
+}
+
+.help ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.help li {
+  margin: 5px 0;
+}
+
+.help a,
+.terms a {
+  color: white;
+  text-decoration: none;
+}
+
+.help a:hover,
+.terms a:hover {
+  text-decoration: underline;
+}
+
+.footer1-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}

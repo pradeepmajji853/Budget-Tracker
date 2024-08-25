@@ -1,0 +1,77 @@
+
+.student-discounts-details {
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .student-discounts-details h1 {
+    text-align: center;
+   margin-bottom: 5px;
+    font-size: 2rem;
+    color:blueviolet;
+  }
+  
+  .discounts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+    justify-content: center;
+  }
+  
+  .discount-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.904);
+    overflow: hidden;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+  }
+  
+  .discount-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .discount-info {
+    padding: 15px;
+    flex: 1;
+  }
+  
+  .discount-info h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+  }
+  
+  .discount-info p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .claim-button {
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+    align-self: center;
+  }
+  
+  .claim-button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .discount-card {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  

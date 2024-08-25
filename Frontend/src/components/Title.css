@@ -1,36 +1,32 @@
-.Title{
-    display: inline-block;
-    
-    /* height: 350px;
-    width: 400px; */
-    font-size: 2.0rem;
-    margin-top: 250px;
-    margin-left: 150px;
+.Title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 2.0rem;
+  margin-top: 250px;
+  margin-left: 20px; /* Adjusted margin to align with the image */
+  width: 50%; /* Adjust width to ensure it fits beside the image */
 }
-.Title h1{
-    margin-top: 25px;
-    color:  #5c5470;
 
+.Title h1 {
+  margin-top: 25px;
+  color: #5c5470;
+  animation: slideInBottom 1.5s ease-out;
 }
-.Title h5{
-  color:#352f44;
-}
-@keyframes slideInbottom {
-    from {
-      transform: translateY(70%);
-      opacity: 0;
-    }
-    to {
-      transform: translatey(0);
-      opacity: 1;
-    }
-  }
-  .Title h1{
-    display: inline-block;
-    animation: slideInbottom 1.5s ease-out
-  }
-  .Title h3{
-    display: inline-block;
-    animation: slideInbottom 1s ease-out
 
+.Title h5 {
+  color: #352f44;
+  animation: slideInBottom 1s ease-out;
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(70%);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

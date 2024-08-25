@@ -8,6 +8,7 @@ export default function Headline({data}){
             <div className="Headlinecontent">
                  <h5>{data.content}</h5>
             </div>
+            
         </div>
     )
 }
