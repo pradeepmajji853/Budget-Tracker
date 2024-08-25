@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import RLhead from "./RLhead";
 import { Link } from "react-router-dom";
 import "./Register.css";
 
@@ -56,7 +55,6 @@ const Register = () => {
 
   return (
     <>
-      <RLhead />
       <div className="Register">
         <div className="RLcard">
           <h1>Signup to Campus Cash</h1>

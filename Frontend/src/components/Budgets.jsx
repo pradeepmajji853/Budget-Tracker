@@ -12,7 +12,7 @@ export default function Budgets() {
     const fetchBudgetDetails = async () => {
       const userId = localStorage.getItem('userId');
       try {
-        const response = await fetch(`http://localhost:3000/budgets/${userId}/details`);
+        const response = await fetch(`http://127.0.0.1:8000/budgets/${userId}/details`);
         const data = await response.json();
         setBudgets(data);
       } catch (error) {
@@ -26,7 +26,7 @@ export default function Budgets() {
   const handleFormSubmit = async (newBudget) => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch('http://localhost:3000/budgets', {
+      const response = await fetch('http://127.0.0.1:8000/budgets', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

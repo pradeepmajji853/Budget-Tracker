@@ -7,7 +7,7 @@ export default function Navbar() {
         <h1>CampusCash</h1>
       <ul>
         <li>
-          <Link>Get started</Link>
+          <Link to="/">Home</Link>
         </li>
         <li> <Link to="/bankConnecth">Bank Connect</Link></li>
         <li> <Link to="/featuresh">Features</Link></li>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-import RLhead from "./RLhead";
 import "./Login.css";
 import {jwtDecode} from "jwt-decode";
 
@@ -82,7 +81,6 @@ const Login = () => {
 
   return (
     <>
-      <RLhead />
       <div className="Register">
         <div className="RLcard">
           <h1>Login to Campus Cash</h1>

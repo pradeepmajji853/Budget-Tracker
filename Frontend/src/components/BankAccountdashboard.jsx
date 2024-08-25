@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar";
 import BankConnect from "./BankConnect";
 
 export default function BankAccountdashboard() {
-  const userId = localStorage.getItem("userId");
 
   return (
     <div className="Dashboard">

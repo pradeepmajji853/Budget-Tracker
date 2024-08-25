@@ -1,12 +1,14 @@
 from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 from passlib.context import CryptContext
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String, Float, Date, ForeignKey
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from jose import jwt, JWTError
 from datetime import datetime, timedelta
 from fastapi.middleware.cors import CORSMiddleware
+
 
 # FastAPI and Database setup
 app = FastAPI()
@@ -69,6 +71,29 @@ class Token(BaseModel):
 class UserLogin(BaseModel):
     email: str
     password: str
+
+class TransactionCreate(BaseModel):
+    userId: int
+    transactions: list[dict]
+
+class BATransaction(Base):
+    __tablename__ = "batransactions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    date = Column(Date, nullable=False)
+    amount = Column(Float, nullable=False)
+    description = Column(String, nullable=False)
+    category = Column(String, nullable=False)
+    type = Column(String(6), nullable=False)  # Can be 'Credit' or 'Debit'
+
+    user = relationship("User", back_populates="transactions")
+
+# Establish relationship in the User model
+User.transactions = relationship("BATransaction", back_populates="user")
+
+# Create the database tables
+Base.metadata.create_all(bind=engine)
 
 # Dependency to get the database session
 def get_db():
@@ -154,3 +179,41 @@ def get_user(user_id: int, db: Session = Depends(get_db)):
         "last_name": user.last_name,
         "email": user.email
     }
+    
+@app.post("/BankAccountdashboard")
+def create_bank_transactions(transaction_data: TransactionCreate, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.id == transaction_data.userId).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    for txn in transaction_data.transactions:
+        new_transaction = BATransaction(
+            user_id=transaction_data.userId,
+            date=datetime.strptime(txn["date"], "%Y-%m-%d"),
+            amount=txn["amount"],
+            description=txn["description"],
+            category=txn["category"],
+            type=txn["type"],
+        )
+        db.add(new_transaction)
+    db.commit()
+
+    return {"message": "Fake transactions added successfully"}
+
+@app.get("/BankAccountdashboard")
+def get_bank_transactions(userId: int, db: Session = Depends(get_db)):
+    transactions = db.query(BATransaction).filter(BATransaction.user_id == userId).all()
+    if not transactions:
+        return []
+
+    return [
+        {
+            "id": txn.id,
+            "date": txn.date.strftime("%Y-%m-%d"),
+            "amount": txn.amount,
+            "description": txn.description,
+            "category": txn.category,
+            "type": txn.type,
+        }
+        for txn in transactions
+    ]

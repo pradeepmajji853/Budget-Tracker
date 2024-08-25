@@ -14,21 +14,38 @@ import BankAccountdashboard from "./BankAccountdashboard.jsx"
 import BankConnecth from './BankConnecth'
 import Featuresh from './Featuresh.jsx'
 
+import Layout2 from "./Layout2.jsx"
+
 
 function App() {
+  
   return (
     <Router>
       <Routes>
+        
         <Route
           path="/"
           element={
             <Layout>
               <Heropage />
               <Features />
+             
+          <Getstarted />
+
+            </Layout>
+          }
+        />
+ <Route
+          path="/getstarted"
+          element={
+            <Layout>
               <Getstarted />
             </Layout>
           }
         />
+
+
+
         <Route
           path="/login"
           element={
@@ -67,41 +84,41 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <Layout>
+            <Layout2>
               <Dashboard/>
-            </Layout>
+            </Layout2>
           }
         />
         <Route
           path="/overview"
           element={
-            <Layout>
+            <Layout2>
               <Overview/>
-            </Layout>
+            </Layout2>
           }
         />
         <Route
           path="/Budgets"
           element={
-            <Layout>
+            <Layout2>
               <Budgets/>
-            </Layout>
+            </Layout2>
           }
         />
         <Route
           path="/savingswallet"
           element={
-            <Layout>
+            <Layout2>
               <SavingsWallet/>
-            </Layout>
+            </Layout2>
           }
         />
          <Route
           path="/BankAccountdashboard"
           element={
-            <Layout>
+            <Layout2>
               <BankAccountdashboard/>
-            </Layout>
+            </Layout2>
           }
         />
 

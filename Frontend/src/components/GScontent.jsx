@@ -15,8 +15,8 @@ export default function GScontent({title,content}){
             <div className="${inView ? 'slideinbottom' : ''}">
                 <ul>
                 {content.map((item,index)=>(
-                    <li>
-                    <h5 key={index}>
+                    <li key={index}>
+                    <h5 >
                        {item}
                         </h5>
                         </li>
