@@ -21,7 +21,7 @@ const SavingsWallet = () => {
 
   const fetchTransactions = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/savingswallet/${userId}`);
+      const response = await axios.get(`http://127.0.0.1:8000/savingswallet/${userId}`);
   
       const transactions = response.data.map(transaction => ({
         ...transaction,
@@ -59,7 +59,7 @@ const SavingsWallet = () => {
     };
 
     try {
-      await axios.post('http://localhost:3000/savingswallet', newTransaction);
+      await axios.post('http://127.0.0.1:8000/savingswallet', newTransaction);
 
       const newBalance = type === 'deposit'
         ? balance + parsedAmount

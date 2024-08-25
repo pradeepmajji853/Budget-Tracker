@@ -5,7 +5,6 @@ import RLhead from "./RLhead";
 import { Link } from "react-router-dom";
 import "./Register.css";
 
-
 const Register = () => {
   const [message, setMessage] = useState("");
   const {
@@ -19,39 +18,42 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch("http://127.0.0.1:8000/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         const errorText = await response.text();
+        console.error("Response error:", errorText);
         throw new Error(`Network response was not ok: ${errorText}`);
       }
-  
+
       const result = await response.json();
-  
+
       if (result.message === "Registration successful") {
-        setMessage("Registration successful. Redirecting to dashboard...");
-        localStorage.setItem("token", result.token);
-        localStorage.setItem("user", JSON.stringify(result.user));
-        localStorage.setItem("userId", result.user.id); 
-  
+        alert(result.message);
+
+        // Store token and user information
+        localStorage.setItem("token", result.access_token);
+
+        // Redirect after a short delay
         setTimeout(() => {
-          navigate("/dashboard");
-        }, 2000);
+          navigate("/dashboard");  // Adjust the route based on your setup
+        }, 2000); // 2-second delay
       } else {
-        setError("form", { type: "manual", message: result.message });
+        console.error("Registration error:", result.detail);
+        setMessage(result.detail); // Display any error messages
       }
     } catch (error) {
       console.error("There was an error!", error);
-      setError("form", { type: "manual", message: error.message });
+      setMessage(error.message); // Display error messages
     }
   };
-  
+
   return (
     <>
       <RLhead />
@@ -66,38 +68,38 @@ const Register = () => {
             <ul className="registerform">
               <div className="name-container">
                 <li>
-                  <label htmlFor="firstName" className="labels">
+                  <label htmlFor="first_name" className="labels">
                     First Name:
                   </label>
                   <input
-                    className={`inputel ${errors.firstName ? "error-border" : ""}`}
+                    className={`inputel ${errors.first_name ? "error-border" : ""}`}
                     placeholder="First Name"
                     type="text"
-                    {...register("firstName", {
+                    {...register("first_name", {
                       required: { value: true, message: "This field is required" },
                     })}
                   />
-                  {errors.firstName && (
-                    <span className="error-icon" title={errors.firstName.message}>!</span>
+                  {errors.first_name && (
+                    <span className="error-icon" title={errors.first_name.message}>!</span>
                   )}
-                  {errors.firstName && <p className="error-text">{errors.firstName.message}</p>}
+                  {errors.first_name && <p className="error-text">{errors.first_name.message}</p>}
                 </li>
                 <li>
-                  <label htmlFor="lastName" className="labels">
+                  <label htmlFor="last_name" className="labels">
                     Last Name:
                   </label>
                   <input
-                    className={`inputel ${errors.lastName ? "error-border" : ""}`}
+                    className={`inputel ${errors.last_name ? "error-border" : ""}`}
                     placeholder="Last Name"
                     type="text"
-                    {...register("lastName", {
+                    {...register("last_name", {
                       required: { value: true, message: "This field is required" },
                     })}
                   />
-                  {errors.lastName && (
-                    <span className="error-icon" title={errors.lastName.message}>!</span>
+                  {errors.last_name && (
+                    <span className="error-icon" title={errors.last_name.message}>!</span>
                   )}
-                  {errors.lastName && <p className="error-text">{errors.lastName.message}</p>}
+                  {errors.last_name && <p className="error-text">{errors.last_name.message}</p>}
                 </li>
               </div>
               <li>
@@ -165,8 +167,7 @@ const Register = () => {
                 />
               </li>
               <div>{isSubmitting && <p>Loading...</p>}</div>
-              <div>{errors.form && <p className="error-text">{errors.form.message}</p>}</div>
-              {message && <p className="success-text">{message}</p>}
+              {message && <p className="error-text">{message}</p>}
             </ul>
           </form>
         </div>
